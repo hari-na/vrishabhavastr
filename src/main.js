@@ -1,5 +1,26 @@
 import './style.css'
 
+// Create and show loading screen
+const loadingScreen = document.createElement('div');
+loadingScreen.id = 'loading-screen';
+loadingScreen.innerHTML = `
+  <div class="loader-content">
+    <h1 class="loader-brand">VRISHABHA<span style="color: #d4af37">VASTR</span></h1>
+    <div class="spinner"></div>
+  </div>
+`;
+document.body.appendChild(loadingScreen);
+
+// Hide loading screen when page is ready
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    loadingScreen.style.opacity = '0';
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, 800);
+});
+
 document.querySelector('#app').innerHTML = `
   <header>
     <a href="/" class="brand-logo">VRISHABHA<span>VASTR</span></a>
